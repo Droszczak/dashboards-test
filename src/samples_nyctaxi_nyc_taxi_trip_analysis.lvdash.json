@@ -501,7 +501,10 @@
                     "alignContent": "left",
                     "allowHTML": false,
                     "allowSearch": false,
-                    "booleanValues": ["false", "true"],
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
                     "displayAs": "string",
                     "displayName": "Route",
                     "fieldName": "Route",
@@ -525,7 +528,10 @@
                     "alignContent": "right",
                     "allowHTML": false,
                     "allowSearch": false,
-                    "booleanValues": ["false", "true"],
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
                     "displayAs": "number",
                     "displayName": "Number Trips",
                     "fieldName": "Number Trips",
@@ -550,7 +556,47 @@
                     "alignContent": "right",
                     "allowHTML": false,
                     "allowSearch": false,
-                    "booleanValues": ["false", "true"],
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "cellFormat": {
+                      "default": {
+                        "foregroundColor": "#85CADE"
+                      },
+                      "rules": [
+                        {
+                          "if": {
+                            "column": "Total Revenue",
+                            "fn": "<",
+                            "literal": "51"
+                          },
+                          "value": {
+                            "foregroundColor": "#9C2638"
+                          }
+                        },
+                        {
+                          "if": {
+                            "column": "Total Revenue",
+                            "fn": "<",
+                            "literal": "101"
+                          },
+                          "value": {
+                            "foregroundColor": "#FFD465"
+                          }
+                        },
+                        {
+                          "if": {
+                            "column": "Total Revenue",
+                            "fn": "<",
+                            "literal": "6001"
+                          },
+                          "value": {
+                            "foregroundColor": "#1FA873"
+                          }
+                        }
+                      ]
+                    },
                     "displayAs": "number",
                     "displayName": "Total Revenue",
                     "fieldName": "Total Revenue",
@@ -577,6 +623,60 @@
                 "showTitle": true,
                 "title": "Route Revenue Attribution"
               },
+              "invisibleColumns": [
+                {
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "allowSearch": false,
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "displayAs": "number",
+                  "highlightLinks": false,
+                  "imageHeight": "",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "linkOpenInNewTab": true,
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "name": "pickup_zip",
+                  "numberFormat": "0",
+                  "order": 100000,
+                  "preserveWhitespace": false,
+                  "title": "pickup_zip",
+                  "type": "integer",
+                  "useMonospaceFont": false
+                },
+                {
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "allowSearch": false,
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "displayAs": "number",
+                  "highlightLinks": false,
+                  "imageHeight": "",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "linkOpenInNewTab": true,
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "name": "dropoff_zip",
+                  "numberFormat": "0",
+                  "order": 100001,
+                  "preserveWhitespace": false,
+                  "title": "dropoff_zip",
+                  "type": "integer",
+                  "useMonospaceFont": false
+                }
+              ],
               "itemsPerPage": 25,
               "paginationSize": "default",
               "version": 1,

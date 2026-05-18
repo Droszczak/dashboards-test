@@ -1,5 +1,6 @@
 bundle:
   name: "dashboards-test"
+  # Teste de pipeline CI/CD — NYC Taxi Trip Analysis
 
 # ─── Teste de deploy com o dashboard NYC Taxi Trip Analysis ─────────────────
 # Catálogo: samples (built-in Databricks — não tem prefixo dev_/prd_)

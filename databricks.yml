@@ -1,0 +1,49 @@
+bundle:
+  name: "dashboards-test"
+
+# ─── Teste de deploy com o dashboard NYC Taxi Trip Analysis ─────────────────
+# Catálogo: samples (built-in Databricks — não tem prefixo dev_/prd_)
+# As queries já referenciam samples.nyctaxi.trips diretamente,
+# portanto dataset_catalog e dataset_schema são apenas metadados de contexto.
+variables:
+  catalog_name:
+    default: samples
+  schema_name:
+    default: nyctaxi
+  dashboard_file_path:
+    default: ./src/samples_nyctaxi_nyc_taxi_trip_analysis.lvdash.json
+  dashboard_name:
+    default: "NYC Taxi Trip Analysis"
+  dashboard_key:
+    default: "nyc_taxi_trip_analysis"
+  warehouse_name:
+    # ← Verifique o nome exato em: Databricks → SQL Warehouses
+    # Nomes comuns no free trial: "Starter Warehouse", "Serverless Starter"
+    default: "Serverless Starter Warehouse"
+
+resources:
+
+  dashboards:
+    current_dashboard:
+      display_name: "[${bundle.target}] ${var.dashboard_name}"
+      file_path: ${var.dashboard_file_path}
+      warehouse_id: ${resources.sql_warehouses.existing_wh.id}
+      dataset_catalog: ${var.catalog_name}
+      dataset_schema: ${var.schema_name}
+      embed_credentials: false
+      permissions:
+        - level: CAN_RUN
+          group_name: "users"
+
+  sql_warehouses:
+    existing_wh:
+      name: ${var.warehouse_name}
+
+targets:
+
+  dev:
+    mode: development
+    default: true
+
+  prod:
+    mode: production

@@ -1,0 +1,5 @@
+# Arquivos temporários gerados pelo CI (nunca commitar)
+src/.deploy_*.lvdash.json
+
+# Databricks bundle state
+.databricks/
